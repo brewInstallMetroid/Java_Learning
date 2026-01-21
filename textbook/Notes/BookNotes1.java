@@ -193,7 +193,7 @@ public class BookNotes1 {
 		// ^^creates an array of 10 strings, NOT a 10 length string like C
 		int arraylen = a.length;
 
-		// The FOR EACH loop!!
+		// The FOR EACH loop!! AKA enhanced for loop
 		for (int element : a) {
 			System.out.println(element);
 		}

@@ -54,6 +54,6 @@ public class SqrtGuess {
 		// System.out.println("guess: " + guess);
 		// System.out.println("user input: " + userInput);
 
-		scanner.close();
+		input.close();
 	}
 }
