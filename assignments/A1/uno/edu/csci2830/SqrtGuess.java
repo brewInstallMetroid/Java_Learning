@@ -25,7 +25,7 @@ public class TempConv {
 }
 */
 
-package edu.uno.csci2830;
+package uno.edu.csci2830;
 
 import java.util.Scanner;
 
