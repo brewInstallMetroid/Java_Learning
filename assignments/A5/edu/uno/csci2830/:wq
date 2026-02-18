@@ -1,0 +1,92 @@
+package edu.uno.csci2830;
+
+import java.util.Scanner;
+import java.util.List;
+
+public class PizzaMain {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		// prompt for crust ingredient first
+		System.out.println("Please enter an ingredient for your crust.");
+		System.out.println("Crust ingredient (e.g., flour, cauliflower):");
+		String ingredient = sc.nextLine().trim();
+
+		System.out.println("What kind of crust would you like:");
+		System.out.println("1 - Thin crust");
+		System.out.println("2 - Thick crust");
+		int crustChoice = Integer.parseInt(sc.nextLine().trim());
+
+		boolean deepDish = false;
+		if (crustChoice == 2) {
+			// prompt for deepDish
+			System.out.println("Deep dish? (true/false):");
+			deepDish = Boolean.parseBoolean(sc.nextLine().trim());
+		}
+
+		System.out.println("What kind of sauce would you like:");
+		System.out.println("1 - Tomato sauce");
+		System.out.println("2 - Alfredo sauce");
+		int sauceChoice = Integer.parseInt(sc.nextLine().trim());
+
+		PizzaCrust crust = (crustChoice == 2)
+				? new ThickCrust(ingredient, deepDish)
+				: new ThinCrust(ingredient);
+
+		PizzaSauce sauce = (sauceChoice == 2)
+				? new AlfredoSauce()
+				: new TomatoSauce();
+
+		Pizza pizza = new Pizza(crust, sauce);
+
+		// TODO: prompt toppings (0-4) and add them
+		// At the end, print using toNiceString():
+
+		System.out.println("Choose toppings by number:");
+		System.out.println("1 - Sausage");
+		System.out.println("2 - Pepperoni");
+		System.out.println("3 - Bacon");
+		System.out.println("4 - Ham");
+		System.out.println("5 - Olives");
+		System.out.println("6 - Onions");
+		System.out.println("7 - Green Peppers");
+		System.out.println("8 - Mushrooms");
+		System.out.println("9 - Mozzerella");
+		System.out.println("10 - Parmesan");
+		System.out.println("11 - Cheddar");
+		System.out.println("12 - Provolone");
+
+		// TODO: build Pizza object
+		int i = 0;
+		while (i < 4) {
+			int choice = Integer.parseInt(sc.nextLine().trim());
+			PizzaTopping t = switch (choice) {
+				case 1 -> new Sausage();
+				case 2 -> new Pepperoni();
+				case 3 -> new Bacon();
+				case 4 -> new Ham();
+				case 5 -> new Olives();
+				case 6 -> new Onions();
+				case 7 -> new GreenPeppers();
+				case 8 -> new Mushrooms();
+				case 9 -> new Mozzarella();
+				case 10 -> new Parmesan();
+				case 11 -> new Cheddar();
+				case 12 -> new Provolone();
+				default -> {
+				}
+			};
+			pizza.addTopping(t);
+			i++;
+		}
+
+		System.out.println("Crust: " + pizza.getCrust().toNiceString());
+		System.out.println("Sauce: " + pizza.getSauce().toNiceString());
+		System.out.println("Toppings:");
+		for (PizzaTopping t : pizza.getToppings()) {
+			System.out.println("- " + t.toNiceString());
+		}
+
+		sc.close();
+	}
+}
