@@ -5,7 +5,13 @@
 
 public class Notes6 {
 	public static void main(String[] args) {
-		
+
+	//ArrayList<Person> sortedPersonListCopy = new ArrayList<>(person); <- this is a shallow copy, it copies all the references to the objects in the list (SAME MEMORY LOCATION)
+
+	//Arraylist<Person> copy = new ArrayList<>;
+	//for (Person person : personList) {
+	//	copy.add(new Person person);
+	//} <- deep copy, new objects in a new location!	
 
 	}
 }
